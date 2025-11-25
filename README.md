@@ -19,6 +19,8 @@ Instead of computing teacher logits on-the-fly during training (which is slow), 
 │ ├── student_distill_multiview.pth # Best distilled student model
 │ ├── student_final.pth # Final student checkpoint
 │ └── student_scratch.json # Student trained from scratch (baseline)
+├── .gitignore # Git ignore rules
+├── README.md # This file
 ├── requirements.txt # Python dependencies (pip)
 ├── environment.yml # Conda environment (recommended)
 ├── distill_train.py # Main script: trains student with precomputed logits
