@@ -39,8 +39,9 @@ Instead of computing teacher logits on-the-fly during training (which is slow), 
 Precompute Teacher Logits (One-Time Setup)
 
 First, train/fine-tune the teacher model:
+'''bash
 python finetune_teacher.py
-
+'''
 Then generate 5 augmented views per image:
 python precompute_augmented_data.py
 
@@ -67,6 +68,6 @@ Check results/distill_multiview.json and results/student_scratch.json for final 
 > 💡 Multi-view distillation brings student performance close to baseline — while still benefiting from teacher knowledge!
 
 ## 🧠 Key Design Choices
-Precomputation: Teacher logits are computed once and reused → faster training.
-Multi-view: We generate 5 different augmentations per image → student sees “different views” of same sample → reduces overfitting.
-No online teacher: Avoids GPU memory pressure from running teacher during student training.
+Precomputation: Teacher logits are computed once and reused → faster training.  
+Multi-view: We generate 5 different augmentations per image → student sees “different views” of same sample → reduces overfitting.  
+No online teacher: Avoids GPU memory pressure from running teacher during student training.  
