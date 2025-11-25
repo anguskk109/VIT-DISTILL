@@ -51,11 +51,13 @@ Results
 Check results/distill_multiview.json and results/student_scratch.json for final accuracy.
 
 ## ✨Final Results
-| Method |StudentAcc(%)|TeacherAcc(%)|
-|-----------------|------------------|
-| Baseline (CE)   | 88.6 | — |
-| KD (Single View)| 71.1 | 92.8 |
-| KD (Multi-View) | 87.1 | 92.8 |
+| Method             | StudentAcc(%) | TeacherAcc(%) |
+|--------------------|---------------|---------------|
+| Baseline (CE)      | 88.6          | –             |
+| KD (Single View)   | 71.1          | 92.8          |
+| KD (Multi-View)    | **87.1**      | 92.8          |
+
+> 💡 Multi-view distillation brings student performance close to baseline — while still benefiting from teacher knowledge!
 
 ## 🧠 Key Design Choices
 Precomputation: Teacher logits are computed once and reused → faster training.
