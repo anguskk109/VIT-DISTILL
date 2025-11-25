@@ -8,28 +8,32 @@ Instead of computing teacher logits on-the-fly during training (which is slow), 
 ---
 
 ## 📁 Project Structure
-├── cache/ # Precomputed teacher logits & augmented data
-│ ├── cifar10_train_augmented_k*.pth # 5 augmented views per image (k=0~4)
-│ ├── teacher_logits_k*.pth # Teacher logits for each view
-│ └── teacher_vit_small_cifar10.pth # Trained ViT teacher model
-├── data/ # CIFAR-10 raw data (downloaded separately)
-├── results/ # Training metrics & final checkpoints
-│ ├── distill_multiview.json # Final accuracy/metrics for KD (Multi-View)
-│ ├── finetuned_teacher.json # Teacher fine-tuning metrics
-│ ├── student_distill_multiview.pth # Best distilled student model
-│ ├── student_final.pth # Final student checkpoint
-│ └── student_scratch.json # Student trained from scratch (baseline)
-├── .gitignore # Git ignore rules
-├── README.md # This file
-├── requirements.txt # Python dependencies (pip)
-├── environment.yml # Conda environment (recommended)
-├── distill_train.py # Main script: trains student with precomputed logits
-├── finetune_teacher.py # Fine-tunes ViT teacher on CIFAR-10
-├── precompute_augmented_data.py # Generates k=5 augmented views per image
-├── precompute_teacher_logits.py # Computes teacher logits for all augmented views
-├── scratch_train.py # Trains student from scratch (no KD)
-├── student_vit.py # Defines student model (e.g., small ViT or CNN)
-└── utils.py # Helper functions (data loading, logging, etc.)
+- **`cache/`** – Precomputed teacher logits and augmented data  *(not tracked in Git)*
+  - `cifar10_train_augmented_k*.pth`: 5 augmented views per image (k=0–4)  
+  - `teacher_logits_k*.pth`: Teacher logits for each view  
+  - `teacher_vit_small_cifar10.pth`: Trained ViT teacher model
+
+- **`data/`** – CIFAR-10 raw dataset *(not tracked in Git)*
+
+- **`results/`** – Training outputs  
+  - `distill_multiview.json`: Metrics for multi-view KD  
+  - `student_scratch.json`: Baseline (no distillation)  
+  - `*.pth`: Model checkpoints
+
+- **Scripts**  
+  - `finetune_teacher.py`: Fine-tune ViT on CIFAR-10  
+  - `precompute_augmented_data.py`: Generate augmented views  
+  - `precompute_teacher_logits.py`: Run teacher inference  
+  - `distill_train.py`: Train student with precomputed logits  
+  - `scratch_train.py`: Train student from scratch  
+  - `student_vit.py`: Student model definition  
+  - `utils.py`:  helpers
+
+- **Config & Docs**  
+  - `requirements.txt`: Python dependencies (pip)  
+  - `environment.yml`: Conda environment (recommended)  
+  - `README.md`: This file  
+  - `.gitignore`: Ignored files
 
 ## ⚙️ Setup & Usage
 Precompute Teacher Logits (One-Time Setup)
