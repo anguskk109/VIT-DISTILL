@@ -1,0 +1,30 @@
+{
+  "experiment": "distill_multiview",
+  "config": {
+    "img_size": 32,
+    "patch_size": 4,
+    "in_chans": 3,
+    "embed_dim": 192,
+    "depth": 6,
+    "num_heads": 3,
+    "mlp_ratio": 4.0,
+    "num_classes": 10,
+    "drop_rate": 0.2,
+    "attn_drop_rate": 0.1,
+    "batch_size": 256,
+    "lr": 0.0005,
+    "weight_decay": 0.1,
+    "epochs": 500,
+    "min_epochs": 400,
+    "patience": 15,
+    "seed": 666,
+    "results_dir": "results",
+    "T": 4.0,
+    "alpha": 0.8,
+    "resume_from": null
+  },
+  "epochs_run": 428,
+  "best_val_acc": 0.805,
+  "final_test_acc": 0.871,
+  "training_time_sec": 3867.886904001236
+}
